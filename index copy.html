@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>მარიამ ბარბაქაძე — პორთფოლიო</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Your Name: about me, projects, student activities and awards."
+  />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="m-runner/m-runner.css" />
+  <link rel="stylesheet" href="./m-catcher.css" />
+  <style>
+    #awards .awards-layout {
+      display: grid;
+      grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
+      align-items: start;
+      gap: 24px;
+    }
+
+    #awards .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #awards .mcatch-trigger {
+      display: inline-flex;
+      flex: 0 0 auto;
+      margin: 0;
+    }
+
+    #awards .mcatch-panel {
+      min-width: 0;
+      margin: 0;
+    }
+
+    #awards .mcatch-panel[hidden] {
+      display: block;
+      visibility: hidden;
+    }
+
+    #awards .mcatch {
+      width: 100%;
+      max-width: 180px;
+      margin: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+
+    #awards .mcatch canvas {
+      filter: url(#mcatch-transparent-background);
+    }
+
+    #awards .mcatch-hint {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    #awards .mcatch-filter-defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      #awards .awards-layout {
+        grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      #awards .award-list {
+        grid-column: 2;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      #awards .awards-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+      }
+
+      #awards .mcatch-panel {
+        width: min(100%, 180px);
+      }
+
+      #awards .award-list {
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+
+    <a href="#board" class="logo" aria-label="მარიამ ბარბაქაძე">
+      <img src="./pictures/M%20logo.png" alt="">
+      <span>მარიამ ბარბაქაძე</span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="#about">ჩემს შესახებ</a>
+      <a href="#projects">პროექტები</a>
+      <a href="#activities">სტუდენტური აქტივობები</a>
+      <a href="#awards">მიღწევები</a>
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- BOARD -->
+    <section id="board">
+
+      <div class="section-inner">
+
+        <div class="board-header">
+
+          <img class="board-logo" src="./pictures/M%20logo.png" alt="">
+
+          <h1 class="board-title">
+            მარიამ ბარბაქაძე
+          </h1>
+
+          <p class="board-sub">
+            მენეჯმენტის სტუდენტი მარკეტინგის კონცნტრაციით <span class="gpa-highlight">GPA: 3. 78</span>
+          </p>
+
+        </div>
+
+        <div class="board-grid" id="board-grid"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT ME -->
+    <section class="page-section" id="about">
+
+      <div class="section-inner">
+
+        <div class="about-heading-row">
+          <h2 class="section-title">
+            ჩემს შესახებ
+            <button type="button" class="mrunner-trigger" id="mrunner-trigger"
+                    aria-expanded="false" aria-controls="mrunner-panel"
+                    aria-label="Play the logo game" title="Click me!">
+              <img class="about-logo" src="./pictures/M%20logo.png" alt="">
+            </button>
+          </h2>
+
+          <div class="mrunner-panel" id="mrunner-panel" hidden>
+            <section class="mrunner" id="mrunner" tabindex="0"
+                     aria-label="Logo game. Press Space or Up Arrow to jump.">
+              <canvas></canvas>
+            </section>
+            <p class="mrunner-hint">Press <b>Space</b> or <b>↑</b> to jump, <b>↓</b> to drop fast. On a phone, tap the game.</p>
+          </div>
+        </div>
+
+        <div class="about-layout">
+
+          <div class="photo-slot photo-slot--portrait">
+            <img src="./pictures/about%20me/100_0014%20(7).png" alt="მარიამ ბარბაქაძე">
+          </div>
+
+          <div class="about-text">
+
+            <div class="about-copy" id="about-copy">
+              <div class="about-copy-default">
+                <p id="about-intro">
+                 მე ვარ მარიამ ბარბაქაძე, 21 წლის. ვსწავლობ ქუთაისის საერთაშორისო უნივერსიტეტში მენეჯმენტის ფაკულტეტის მე-4 კურსზე, მარკეტინგის კონცენტრაციითა და კომპიუტერული მეცნიერებების მაინორით. <span class="gpa-highlight">GPA: 3.78</span> დაინტერესებული ვარ მარკეტინგული კომუნიკაციებით, მომხმარებელთა ქცევითა და სტრატეგიული კომუნიკაციებით.
+                </p>
+
+                <p class="about-summary" id="about-summary">
+                  ვქსოვ, ვქარგავ, ვუკრავ ფანდურზე და ვცდილობ უფრო მეტი გზა ვიპოვო თავის კრეატიულად გამოსახატად. ვიტყოდი, რომ  მაქვს განვითარებული ანალიტიკური, ორგანიზაციული და პრობლემების გადაჭრის უნარები. გამოცდილება მაქვს სტუდენტთა მენტორობაში, უნივერსიტეტური ინიციატივების კოორდინაციასა და სხვადასხვა მიმართულების გუნდებთან თანამშრომლობაში.
+                </p>
+              </div>
+
+              <div class="skills-detail-panel" id="skills-detail-panel" hidden>
+                <div class="skills-detail-grid">
+                  <div>
+                    <h3>ენები</h3>
+                    <ul>
+                      <li>ქართული (C2)</li>
+                      <li>ინგლისური (C1)</li>
+                      <li>რუსული (B1)</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3>კომუნიკაცია</h3>
+                    <ul>
+                      <li>კომუნიკაცია & ნარატივის შექმნა</li>
+                      <li>კონტენტის სტრუქტურირება და პრეზენტაცია </li>
+                      <li>აკადემიკური წერა</li>
+                      <li>კვლევის დიზაინი და მონაცემთა დამუშავება</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3>Tools &amp; Platforms</h3>
+                    <ul>
+                      <li>Excel and Power BI</li>
+                      <li>PowerPoint and Canva</li>
+                      <li>Zoom and Google Meet</li>
+                      <li>Microsoft Office</li>
+                      <li>Google Workspace</li>
+                      <li>AI tools</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3>პროგრამირების ენები</h3>
+                    <ul>
+                      <li>Python</li>
+                      <li>R</li>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                      <li>SQL</li>
+                      <li>C#</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="skills-toggle" aria-expanded="false" aria-controls="skills-detail-panel">
+              ჩემი უნარები
+            </button>
+
+            <ul class="fact-list" id="about-facts">
+
+              <li>
+                <strong>განათლება</strong>
+                მენეჯმენტის ბაკალავრი, ქუთაისის საერთაშორისო უნივერსიტეტი
+              </li>
+
+              <li>
+                <strong>ლოკაცია</strong>
+                ქუთაისი, საქართველო
+              </li>
+
+              <li>
+                <strong>მეილი</strong>
+                <a href="mailto:barbakadzemariam88@gmail.com">
+                  barbakadzemariam88@gmail.com
+                </a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section
+      class="page-section page-section--tint"
+      id="projects"
+    >
+
+      <div class="section-inner">
+
+        <h2 class="section-title projects-title">
+          პროექტები
+          <img class="projects-title-logo" src="./pictures/M%20logo.png" alt="">
+        </h2>
+
+        <div class="projects-carousel" role="group" aria-label="Project pages">
+          <button class="projects-arrow" type="button" data-project-direction="-1" aria-label="Previous projects">
+            <span aria-hidden="true">‹</span>
+          </button>
+
+          <div class="project-pages">
+            <div class="project-page" data-project-page>
+              <div class="card-grid">
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/pino.png" alt="პინოქიოს პროექტის ვიზუალი" loading="lazy"></div>
+                  <h3>თანამედროვე პინოქიო: ეს რეკლამა გასწავლის როგორ გახდე ნამდვილი მამაკაცი</h3>
+                  <p class="project-description">საკონფერენციო ნაშრომი და კვლევა თუ როგორ ამკვიდრებენ რეკლამები გენდერულ სტერეოტიპებს და რას ფიქრობენ ამაზე ქართველი ახალგაზრდები.</p>
+                  <div class="project-links">
+                    <a href="https://docs.google.com/presentation/d/1aGiJjP01scLYvRcMUNTFdUoyC0bcWkJ0/edit?slide=id.p1#slide=id.p1" class="card-link" target="_blank" rel="noopener">პრეზენტაცია</a>
+                    <a href="https://docs.google.com/document/d/1C8j8_Lhqyy-xLQa1UX6pXhF_PfZoc1Qc/view" class="card-link" target="_blank" rel="noopener">ნაშრომი</a>
+                  </div>
+                </article>
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/mean.png" alt="Selling Meaning პროექტის ვიზუალი" loading="lazy"></div>
+                  <h3>Selling Meaning: მარკეტინგი, როგორც სოციალური ძალა</h3>
+                  <p>კვლევა, თუ როგორ იყენებს მარკეტინგი პროდუქტებსა და სიმბოლოებს სოციალური ნორმების, კულტურული ღირებულებებისა და მომხმარებელთა ქცევის ფორმირებისთვის. განვიხილე Coca-Cola-ს Santa Claus, De Beers-ის ბრილიანტები, გენდერული ფერები და სხვა მაგალითები.</p>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/drive/u/0/folders/1JUCfDVPSGyvpxXm6-o5__2E_a_eijQSh" class="card-link" target="_blank" rel="noopener">პრეზენტაცია</a>
+                    <a href="https://docs.google.com/document/d/1NkHAXTlV-sT7ubtW3Xc5qwYk5XIkKrce/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">ნაშრომი</a>
+                  </div>
+                </article>
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/Millo.png" alt="Millo პროექტის ვიზუალი" loading="lazy"></div>
+                  <h3>მაილო: A friend to hug, a friend to learn with</h3>
+                  <p>MILLO არის პერსონალიზებული საგანმანათლებლო პროდუქტი, რომელიც ბავშვის ნახატს სათამაშოდ აქცევს და მას ციფრულ საგანმანათლებლო კონტენტს უკავშირებს. Millo-სთვის შევიმუშავეთ პროდუქტის კონცეფცია, ბიზნეს და მარკეტინგული სტრატეგია და ფინანსური გათვლები.</p>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1a1MrT6r5ktd9MWKYVxRspFCb8IT8tvfJ/view?usp=sharing" class="card-link" target="_blank" rel="noopener">პრეზენტაცია</a>
+                    <a href="https://docs.google.com/document/d/1BQEhLMgMhbBWHssgfmUI2LsrUQzbM4Vg/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">ნაშრომი</a>
+                  </div>
+                </article>
+                <article class="card">
+                  <div class="photo-slot"><img class="project-image--aeo" src="./pictures/projects/AEO.png" alt="AEO პროექტის ვიზუალი" loading="lazy"></div>
+                  <h3>You Have Great Jeans!</h3>
+                  <p>Sydney Sweeney-ის დენიმის კამპანიის გაუმჯობესების მცდელობა, რომელიც ერთი კონკრეტული ტიპის გენეტიკის ნაცვლად ჯინსების ისტორიასა და მათი მომხმარებლების მრავალფეროვნებაზე ფოკუსირდება. ახალი კამპანიის კონცეფცია, STP, PESO მოდელი, კონტენტ კალენდარი და KPI-ები</p>
+                  <div class="project-links">
+                    <a href="https://docs.google.com/presentation/d/1KaeYo96YLVNgSoCT4DkcFXBeKt-LZbl9/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">პრეზენტაცია</a>
+                    <a href="https://docs.google.com/document/d/1aZvOm7zn2EDm-3F58kJzTsGgEt9XNT1s/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">ნაშრომი</a>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="project-page" data-project-page hidden>
+              <div class="card-grid">
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/airbnb1.png" alt="Airbnb-ის Power BI პროექტი" loading="lazy"></div>
+                  <h3>Airbnb-ის გაქირავების ტენდენციები ესპანეთის ქალაქებში</h3>
+                  <p>Power BI პროექტი, გუნდთან ერთად გამოვიკვლიე ბარსელონას, მადრიდისა და ვალენსიის მოკლევადიანი ბინებით გაქირავების ბაზარი ფასების სტრატეგიების, მოთხოვნის ტენდენციებისა და ლოკაციებს შორის განსხვავებების მიხედვით.</p>
+                  <a href="./final-1.pbix" class="card-link" download="final-1.pbix">ჩამოტვირთე ფაილი</a>
+                </article>
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/kiu.png" alt="KIU-ს ვებგვერდის ვიზუალი" loading="lazy"></div>
+                  <h3>KIU-ს საინფორმაციო ვებგვერდი</h3>
+                  <p>ქუთაისის საერთაშორისო უნივერსიტეტის საინფორმაციო ვებგვერდის Frontend დიზაინი. პროექტში გამოვიყენე HTML, CSS და JavaScript, მათ შორის DOM, Fetch API, Async/Await, Local Storage და Session Storage. </p>
+                  <a href="https://mariam-barbakadze8.github.io/scripting/" class="card-link" target="_blank" rel="noopener">გადადი ვებსაიტზე</a>
+                </article>
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/sarajishvili.png" alt="სარაჯიშვილის პროექტის ვიზუალი" loading="lazy"></div>
+                  <h3>სარაჯიშვილი</h3>
+                  <p>სარაჯიშვილის ბრენდის შესახებ მარკეტინგული პროექტი, რომელიც კომპანიის ისტორიას, პროდუქტებს, ტექნოლოგიასა და ბრენდის პოზიციონირებას იკვლევს. პროექტის ფარგლებში შევიმუშავეთ მარკეტინგული ხედვა და შევქმენით სარეკლამო ვიდეო</p>
+                  <div class="project-links">
+                    <a href="https://docs.google.com/presentation/d/1E6QWiUZap59UH0BH9RYwA2H_Yjo31zm-/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">პრეზენტაცია</a>
+                    <a href="https://drive.google.com/file/d/1Be8dP9BX7F5OwOgpgKuuJ3f0fKXLP4T3/view?usp=sharing" class="card-link" target="_blank" rel="noopener">ვიდეო</a>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="project-page" data-project-page hidden>
+              <div class="card-grid">
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/bitc.png" alt="ბიტკოინი როგორც „ციფრული ოქრო“: Hedge, Safe Haven, or Diversifier?" loading="lazy"></div>
+                  <h3>ბიტკოინი როგორც „ციფრული ოქრო“: Hedge, Safe Haven, or Diversifier?</h3>
+                  <p>კვლევა აჩვენებს, რომ ბიტკოინი უფრო დივერსიფიკატორის როლს ასრულებს, ვიდრე სტაბილური ჰეჯირების ან უსაფრთხო აქტივის. მისი მაღალი მერყეობა და კრიზისების დროს აქციებთან დაკავშირებული მოძრაობა „ციფრული ოქროს“ სტატუსს ნაკლებად ამყარებს.</p>
+                  <a href="https://drive.google.com/file/d/14I_BkWo6FZopMsYW2_moKlB8hbjBZY0b/view?usp=sharing" class="card-link" target="_blank" rel="noopener">რეპორტი</a>
+                </article>
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/black.png" alt="შავი ზღვის ქვეყნების ეკონომიკური ანალიზი" loading="lazy"></div>
+                  <h3>შავი ზღვის ქვეყნების ეკონომიკური ანალიზი</h3>
+                  <p>R studio პროექტი, გუნდთან ერთად გავაანალიზე ექვსი ქვეყნის GDP, ეკონომიკური ზრდა, ფულადი გზავნილები და მოხმარება. ფოკუსირდი საშუალოზე მაღალი და მაღალი შემოსავლის მქონე ქვეყნებში ფულად გზავნილებზე დამოკიდებულების შედარებაზე. გამოვიყენე R მონაცემების გასაწმენდად, ვიზუალიზაციისა და შედარებითი ანალიზისთვის.</p>
+                  <a href="https://github.com/Mariam-Barbakadze8/Economic-Analysis-of-Black-Sea-Countries-using-R-and-Rstudio/commit/30673c9e559ba4af7b63a4ef3b26c1655685304b" class="card-link" target="_blank" rel="noopener">იხილე კოდი</a>
+                </article>
+              </div>
+            </div>
+
+            <div class="project-page" data-project-page hidden>
+              <div class="card-grid">
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/ladder.png" alt="კავკასიის ქვეყნების ცხოვრებით ბედნიერების კვლევა" loading="lazy"></div>
+                  <h3>კავკასიის ქვეყნების ცხოვრებით ბედნიერების კვლევა</h3>
+                  <p>excel პროექტი, რომელიც იკვლევს, თუ როგორ უკავშირდება GDP ერთ სულ მოსახლეზე, სოციალური მხარდაჭერა, ცხოვრებისეული არჩევანის თავისუფლება, ჯანსაღი სიცოცხლის ხანგრძლივობა და გულუხვობა კავკასიის ქვეყნების Life Ladder-ის მაჩვენებლებს 2006–2019 წლებში. ასევე, აანალიზებს ამ ფაქტორების ერთობლივ გავლენას თითოეული ქვეყნის ცხოვრების შეფასებაზე.</p>
+                  <div class="project-links">
+                    <a href="https://drive.google.com/file/d/1JpN3ogsi_FzpwdwIviuHzzVaUK3faxN_/view?usp=sharing" class="card-link" target="_blank" rel="noopener">პრეზენტაცია</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1glPTYf7_Kk6-1wGrZoR-tdeNdOsmVGiI/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">excel ფაილი</a>
+                  </div>
+                </article>
+                <article class="card">
+                  <div class="photo-slot"><img src="./pictures/projects/grab_go.png" alt="Grab & Go კაფეტერია" loading="lazy"></div>
+                  <h3>Grab & Go კაფეტერია</h3>
+                  <p>გუნდთან ერთად შევისწავლე სტუდენტების მოთხოვნები და მათზე დაყრდნობით შევიმუშავე კამპუსის Grab&Go კონცეფციის მენიუ და მოთხოვნის პროგნოზი. ასევე, Excel-ში შევქმენი ხარჯებისა და ფინანსური ანალიზის მოდელი, რომელიც მოიცავდა თვითღირებულებას, ფასებს, CVP ანალიზს, მოგებიანობასა და ფინანსური ანგარიშგების შეფასებას.</p>
+                  <a href="https://docs.google.com/presentation/d/1Q67wtMGNneN6pfAvTDSnkCTAxvyMjn7h/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">პრეზენტაცია</a>
+                  <a href="https://docs.google.com/spreadsheets/d/1gG228I03Bmp8CO9ekjyJKbz7NF1AKA8j/edit?usp=sharing&ouid=109535203645170659865&rtpof=true&sd=true" class="card-link" target="_blank" rel="noopener">excel ფაილი</a>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <button class="projects-arrow" type="button" data-project-direction="1" aria-label="Next projects">
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+
+        <p class="projects-page-status" id="projects-page-status" aria-live="polite">1-3 / 11</p>
+
+      </div>
+
+    </section>
+
+
+    <!-- STUDENT ACTIVITIES -->
+    <section
+      class="page-section"
+      id="activities"
+    >
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          სტუდენტური აქტივობები
+        </h2>
+
+        <div class="card-grid card-grid--two">
+
+          <article class="card">
+
+            <div class="photo-slot">
+              <img src="./pictures/student%20activities/foot.png" alt="KIU-ს საფეხბურთო ჩემპიონატი" loading="lazy">
+            </div>
+
+            <h3>
+              KIU ფეხბურთის ჩემპიონატის თანაორგანიზატორი
+            </h3>
+
+            <p class="card-meta">
+              2026
+            </p>
+
+            <p>
+             მონაწილეობა მივიღე KIU-ს საფეხბურთო ჩემპიონატის დაგეგმვასა და განხორციელებაში, ვკოორდინირებდი პროცესებს და ვთანამშრომლობდი მონაწილეებთან. გუნდის წევრებთან ერთად დავგეგმე ჩემპიონატის პოპულარიზაციისკენ მიმართული სარეკლამო კამპანია.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="photo-slot">
+              <img class="activity-image--mentor" src="./pictures/student%20activities/ment.png" alt="მარიამი მენეჯმენტ მენტორად, 2026" loading="lazy">
+            </div>
+
+            <h3>
+              მენეჯმენტ მენტორი
+            </h3>
+
+            <p class="card-meta">
+              2026 – დღემდე
+            </p>
+
+            <p>
+              ვეხმარები სტუდენტებს აკადემიურ და პროფესიულ განვითარებაში, ვუზიარებ გამოცდილებას და ვუწევ მხარდაჭერას. ღონისძიებებზე წარმოვადგენდი მენეჯმენტის სკოლას და ვქმნიდი მისი მარკეტინგული/PR წარდგენის მეთოდებს.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- AWARDS -->
+    <section
+      class="page-section page-section--tint"
+      id="awards"
+    >
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          <button type="button" class="mcatch-trigger" id="mcatch-trigger"
+                  aria-expanded="false" aria-controls="mcatch-panel"
+                  aria-label="Play the button catching game" title="Click me!">
+            <img class="about-logo" src="./pictures/M%20logo.png" alt="">
+          </button>
+          მიღწევები:
+        </h2>
+
+        <div class="awards-layout">
+          <div class="mcatch-column">
+            <div class="mcatch-panel" id="mcatch-panel" hidden>
+              <section class="mcatch" id="mcatch" tabindex="0"
+                       aria-label="Button catching game. Move with mouse, touch or arrow keys.">
+                <svg class="mcatch-filter-defs" aria-hidden="true" focusable="false">
+                  <filter id="mcatch-transparent-background" color-interpolation-filters="sRGB">
+                    <feColorMatrix type="matrix" values="
+                      1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      0 3 0 0 -0.35
+                    " />
+                  </filter>
+                </svg>
+                <canvas></canvas>
+              </section>
+              <p class="mcatch-hint">Move with your <b>mouse</b>, finger or <b>← →</b> keys. Catch the buttons, don't let 3 hit the floor. Pearl ones are worth 5!</p>
+            </div>
+          </div>
+
+          <ul class="award-list">
+
+          <li class="award">
+            <div>
+              <h3>
+                სახელმწიფო სტიპენდია
+              </h3>
+              <p class="card-meta">
+                საქართველოს განათლების, მეცნიერებისა და ახალგაზრდობის სამინისტრო · 2026
+              </p>
+              <p class="award-description">სახელმწიფო სტიპენდია მომენიჭა მაღალი აკადემიური მოსწრებისა და სტუდენტურ აქტივობებში აქტიური მონაწილეობისთვის.</p>
+            </div>
+          </li>
+
+          <li class="award">
+            <div>
+              <h3>
+                სახელმწიფო სტიპენდია
+              </h3>
+              <p class="card-meta">
+                საქართველოს განათლების, მეცნიერებისა და ახალგაზრდობის სამინისტრო · 2025
+              </p>
+              <p class="award-description">სახელმწიფო სტიპენდია მომენიჭა მაღალი აკადემიური მოსწრებისა და სტუდენტურ აქტივობებში აქტიური მონაწილეობისთვის.</p>
+            </div>
+          </li>
+
+          <li class="award">
+            <div>
+              <h3>
+                KIU სტიპენდია
+              </h3>
+              <p class="card-meta">
+                ქუთაისის საერთაშორისო უნივერსიტეტი · 2023-2025
+              </p>
+              <p class="award-description">KIU სტიპენდია მომენიჭა მაღალი აკადემიური მოსწრების გამო.</p>
+            </div>
+          </li>
+
+          <li class="award">
+            <div>
+              <h3>
+                ესეების კონკურსში გამარჯვება
+              </h3>
+              <p class="card-meta">
+                ბრიტანეთის საბჭო · 2023
+              </p>
+              <p class="award-description"> გავიმარჯვე მულტიკულტურალიზმის თემაზე ნაშრომის წარდგენით, რომელშიც წარმოვაჩინე კულტურების თანაარსებობისა და ურთიერთპატივისცემის მნიშვნელობა.</p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <p class="footer-name">
+      მარიამ ბარბაქაძე
+    </p>
+
+    <p class="footer-small">
+      ვებსაიტში დავმალე 2 თამაში. რამდენი იპოვე?
+    </p>
+    <p></p>
+    <p class="footer-links">
+
+      <a href="mailto:barbakadzemariam88@gmail.com">
+        barbakadzemariam88@gmail.com
+      </a>
+
+      <a
+        href="https://github.com/Mariam-Barbakadze8"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/mariam-barbakadze-9b5ba5305"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+    </p>
+
+  </footer>
+
+
+  <script src="m-runner/m-runner.js"></script>
+  <script src="./m-catcher.js"></script>
+  <script>
+    (() => {
+      const game = document.getElementById('mcatch');
+      const trigger = document.getElementById('mcatch-trigger');
+      const sound = game && game.querySelector('.mcatch__sound');
+      if (!game || !trigger || !sound) return;
+
+      let soundEnabled = sound.getAttribute('aria-pressed') === 'true';
+      const enableSound = () => {
+        if (trigger.getAttribute('aria-expanded') !== 'true') return;
+        if (sound.getAttribute('aria-pressed') === 'true') {
+          soundEnabled = true;
+          return;
+        }
+        if (soundEnabled) return;
+        sound.click();
+        soundEnabled = sound.getAttribute('aria-pressed') === 'true';
+      };
+
+      game.addEventListener('pointerdown', event => {
+        if (event.target !== sound) enableSound();
+      });
+      game.addEventListener('keydown', event => {
+        if (event.target !== sound) enableSound();
+      });
+      trigger.addEventListener('click', enableSound);
+    })();
+  </script>
+  <script src="script.js"></script>
+
+</body>
+</html>
