@@ -59,7 +59,7 @@ const frames = [
   },
   {
     section: 'awards',
-    name: 'სტიპენდიები და სერთიფიკატები',
+    name: 'მიღწევები',
     images: ['pictures/stipend/stipend_1.jpg', 'pictures/stipend/stipend_2.jpg'] // two photos side by side
   }
 ];
