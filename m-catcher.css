@@ -1,0 +1,74 @@
+/* M Catcher styles */
+.mcatch {
+  --mc-bg: #25121F;
+  --mc-fg: #FFD9E5;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: var(--mc-bg);
+  border: 3px solid #ED5E8C;
+  border-radius: 10px;
+  overflow: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.mcatch:focus-visible { outline: 3px solid #ED5E8C; outline-offset: 4px; }
+.mcatch canvas { display: block; width: 100%; touch-action: none; cursor: none; }
+
+.mcatch__sound {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--mc-fg);
+  background: transparent;
+  border: 2px solid var(--mc-fg);
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: .75;
+}
+.mcatch__sound:hover { opacity: 1; }
+.mcatch__sound:focus-visible { outline: 2px solid #ED5E8C; outline-offset: 2px; }
+.mcatch__ico { grid-area: 1 / 1; }
+.mcatch__sound .mcatch__ico--on { display: none; }
+.mcatch__sound.is-on .mcatch__ico--on { display: block; }
+.mcatch__sound.is-on .mcatch__ico--off { display: none; }
+
+.mcatch-hint {
+  margin: 12px auto 0;
+  max-width: 400px;
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #6b4a5c;
+  text-align: center;
+}
+
+/* Optional: logo button that opens the game */
+.mcatch-trigger {
+  display: inline-flex;
+  margin: 0 0 0 .35em;
+  vertical-align: middle;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  line-height: 0;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+.mcatch-trigger:hover { transform: rotate(8deg) scale(1.08); }
+.mcatch-trigger:focus-visible { outline: 3px solid #ED5E8C; outline-offset: 4px; }
+.mcatch-trigger img { display: block; margin: 0; }
+.mcatch-panel { margin: 0 0 32px; scroll-margin-top: 84px; }
+/* Awards section: line the game up with the award cards (they are indented 76px) */
+#awards .mcatch-panel { margin-left: 76px; }
+@media (max-width: 900px) { #awards .mcatch-panel { margin-left: 0; } }
+.mcatch-panel[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .mcatch-trigger { transition: none; } }
